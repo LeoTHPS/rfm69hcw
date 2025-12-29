@@ -420,6 +420,9 @@ bool      rfm69hcw_set_power(rfm69hcw* r, int value)
 	if (pa0 && (pa1 || pa2))
 		return false;
 
+	if (!pa1 && pa2)
+		return false;
+
 	if (pa_level > RFM69HCW_POWER_LEVEL_MAX)
 		return false;
 
