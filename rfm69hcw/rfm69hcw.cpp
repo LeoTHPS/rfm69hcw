@@ -414,13 +414,10 @@ bool      rfm69hcw_set_power(rfm69hcw* r, int value)
 
 	bool pa0      = value & RFM69HCW_POWER_MODE_PA_0;
 	bool pa1      = value & RFM69HCW_POWER_MODE_PA_1;
-	bool pa2      = value & RFM69HCW_POWER_MODE_PA_2;
+	bool pa1_2    = value & RFM69HCW_POWER_MODE_PA_1_2;
 	auto pa_level = value & RFM69HCW_POWER_LEVEL_MAX;
 
-	if (pa0 && (pa1 || pa2))
-		return false;
-
-	if (!pa1 && pa2)
+	if (pa0 && (pa1 || pa1_2))
 		return false;
 
 	if (pa_level > RFM69HCW_POWER_LEVEL_MAX)

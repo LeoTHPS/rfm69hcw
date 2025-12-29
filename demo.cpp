@@ -35,9 +35,11 @@ int main()
 	if (auto r = rfm69hcw_open(RFM69HCW_SPI, RFM69HCW_SPI_MISO, RFM69HCW_SPI_MOSI, RFM69HCW_SPI_SCLK, RFM69HCW_SPI_CS, RFM69HCW_G0, RFM69HCW_RST))
 	{
 		rfm69hcw_set_lna(r, RFM69HCW_LNA_GAIN_AUTO);
-		rfm69hcw_set_power(r, RFM69HCW_POWER_MODE_PA_1 | RFM69HCW_POWER_MODE_PA_2 | RFM69HCW_POWER_LEVEL_MAX);
-		rfm69hcw_set_bitrate(r, RFM69HCW_BITRATE_115200);
-		rfm69hcw_set_frequency(r, 915100000);
+		rfm69hcw_set_power(r, RFM69HCW_POWER_MODE_PA_0 | RFM69HCW_POWER_LEVEL_MAX);
+		// rfm69hcw_set_power(r, RFM69HCW_POWER_MODE_PA_1 | RFM69HCW_POWER_LEVEL_MAX);
+		// rfm69hcw_set_power(r, RFM69HCW_POWER_MODE_PA_1_2 | RFM69HCW_POWER_LEVEL_MAX);
+		rfm69hcw_set_bitrate(r, RFM69HCW_BITRATE_1200);
+		rfm69hcw_set_frequency(r, RFM69HCW_FREQUENCY_MIN + 100000);
 		rfm69hcw_set_modulation(r, RFM69HCW_MODULATION_FSK);
 		rfm69hcw_set_network(r, RFM69HCW_NETWORK_MIN);
 		rfm69hcw_set_network_address(r, RFM69HCW_NETWORK_ADDRESS_MIN);
